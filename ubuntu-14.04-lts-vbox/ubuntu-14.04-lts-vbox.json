@@ -12,7 +12,7 @@
         "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
         "initrd=/install/initrd.gz -- <enter>"
       ],
-      "disk_size": "2000",
+      "disk_size": "4000",
       "guest_os_type": "Ubuntu_64",
       "http_directory": ".",
       "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
