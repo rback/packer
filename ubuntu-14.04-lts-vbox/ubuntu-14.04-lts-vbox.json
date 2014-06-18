@@ -23,7 +23,7 @@
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "30000s",
       "type": "virtualbox-iso",
-      "name": "ubuntu-14.04-x86_64"
+      "name": "ubuntu-14.04-amd64"
     }
   ],
   "provisioners": [
