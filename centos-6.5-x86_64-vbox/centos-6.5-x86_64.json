@@ -1,0 +1,31 @@
+{
+    "builders": [{
+        "type": "virtualbox-iso",
+        "name": "centos-6.5-x86_64",
+        "headless": false,
+        "guest_os_type": "RedHat_64",
+        "disk_size": 4000,
+        "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+        "iso_checksum": "f21a71e8e31df73297bdd1ccd4a64a36831284bd",
+        "iso_checksum_type": "sha1",
+        "boot_command": [
+            "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        ],
+        "boot_wait": "12s",
+        "http_directory": ".",
+        "ssh_username": "root",
+        "ssh_password": "vagrant",
+        "ssh_port": 22,
+        "ssh_wait_timeout": "36000s",
+        "shutdown_command": "halt -h -p"
+    }],
+    "post-processors": [{
+        "output": "{{.BuildName}}_{{.Provider}}.box",
+        "type": "vagrant"
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "script": "postinstall.sh",
+        "execute_command": "bash {{.Path}}"
+    }]
+}
